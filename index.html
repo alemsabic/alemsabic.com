@@ -1,0 +1,152 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Alem Sabic</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+            color: #f6f6f6;
+            background: #141516;
+            min-height: 100vh;
+            overflow-x: hidden;
+        }
+
+        .container {
+            display: flex;
+            min-height: 100vh;
+        }
+
+        .image-side {
+            flex: 1;
+            background: url('alemsabic.png') center center / cover no-repeat;
+            position: relative;
+        }
+
+        .content-side {
+            flex: 1;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            padding: 4rem 2rem;
+        }
+
+        .content {
+            max-width: 500px;
+            width: 100%;
+        }
+
+        h1 {
+            font-size: 5rem;
+            font-weight: 900;
+            line-height: 1.1;
+            margin-bottom: 2rem;
+            color: #f6f6f6;
+        }
+
+        .intro {
+            font-size: 1.125rem;
+            line-height: 1.75;
+            margin-bottom: 3rem;
+        }
+
+        .intro a {
+            color: #47bec7;
+            text-decoration: none;
+            border-bottom: 1px solid rgba(71, 190, 199, 0.3);
+            transition: border-color 0.25s ease;
+        }
+
+        .intro a:hover {
+            border-bottom-color: #47bec7;
+        }
+
+        .section {
+            margin-bottom: 4rem;
+        }
+
+        .section-label {
+            font-size: 3rem;
+            font-weight: 900;
+            color: #f6f6f6;
+            margin-bottom: 1rem;
+        }
+
+        .links {
+            display: flex;
+            flex-direction: row;
+            gap: 3rem;
+        }
+
+        .links a {
+            color: #888888;
+            text-decoration: none;
+            font-size: 1.375rem;
+            transition: color 0.25s ease;
+        }
+
+        .links a:hover {
+            color: #F44336;
+        }
+
+        @media (max-width: 968px) {
+            .container {
+                flex-direction: column;
+            }
+
+            .image-side {
+                min-height: 40vh;
+            }
+
+            h1 {
+                font-size: 3rem;
+            }
+
+            .content-side {
+                padding: 3rem 1.5rem;
+            }
+        }
+
+        @media (max-width: 640px) {
+            .links {
+                flex-direction: column;
+                gap: 0.75rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="image-side"></div>
+        <div class="content-side">
+            <div class="content">
+                <h1>Alem Šabić</h1>
+
+                <p class="intro">
+Stet clita kasd gubergren, no sea takimata sanctus est Lorem ipsum dolor sit amet. Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores et ea rebum.</p>
+
+                <div class="section">
+                    <div class="section-label">Kontakt</div>
+                    <div class="links">
+                        <a href="#">E-Mail</a>
+                    </div>
+                </div>
+
+                <div class="section">
+                    <div class="section-label">Links</div>
+                    <div class="links">
+                        <a href="https://www.linkedin.com/in/alem%C5%A1abi%C4%87/" target="_blank">LinkedIn</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+</html>
