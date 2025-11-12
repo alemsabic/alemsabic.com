@@ -13,11 +13,34 @@
 
         body {
             font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
-            color: #f6f6f6;
+            color: #d4d4d4;
             background: #141516;
             min-height: 100vh;
             overflow-x: hidden;
             position: relative;
+            -webkit-font-smoothing: antialiased;
+            -moz-osx-font-smoothing: grayscale;
+            cursor: none;
+        }
+
+        body::after {
+            content: '';
+            width: 20px;
+            height: 20px;
+            border: 2px solid rgba(234, 88, 12, 0.5);
+            border-radius: 50%;
+            position: fixed;
+            pointer-events: none;
+            z-index: 10000;
+            transition: transform 0.15s ease-out, opacity 0.15s ease-out;
+            opacity: 0;
+            left: var(--cursor-x, -100px);
+            top: var(--cursor-y, -100px);
+            transform: translate(-50%, -50%);
+        }
+
+        body.cursor-active::after {
+            opacity: 1;
         }
 
         body::before {
@@ -33,6 +56,17 @@
             background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 400 400' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noiseFilter'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noiseFilter)'/%3E%3C/svg%3E");
         }
 
+        @keyframes fadeIn {
+            from {
+                opacity: 0;
+                transform: translateY(20px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
         .container {
             display: flex;
             min-height: 100vh;
@@ -42,6 +76,8 @@
             flex: 1;
             background: url('alemsabic.png') center center / cover no-repeat;
             position: relative;
+            opacity: 0;
+            animation: fadeIn 1.2s ease-out 0.8s forwards;
         }
 
         .image-side::before {
@@ -60,6 +96,8 @@
             align-items: center;
             justify-content: center;
             padding: 4rem 2rem;
+            opacity: 0;
+            animation: fadeIn 1.2s ease-out 0.3s forwards;
         }
 
         .content {
@@ -72,24 +110,24 @@
             font-weight: 900;
             line-height: 1.1;
             margin-bottom: 2rem;
-            color: #f6f6f6;
+            color: #ea580c;
         }
 
         .intro {
-            font-size: clamp(1rem, 1vw + 0.75rem, 1.125rem);
-            line-height: 1.75;
+            font-size: clamp(2rem, 2vw + 1.5rem, 2.25rem);
+            line-height: 1.5;
             margin-bottom: 3rem;
         }
 
         .intro a {
-            color: #47bec7;
+            color: #ea580c;
             text-decoration: none;
-            border-bottom: 1px solid rgba(71, 190, 199, 0.3);
+            border-bottom: 1px solid rgba(255, 255, 255, 0.3);
             transition: border-color 0.25s ease;
         }
 
         .intro a:hover {
-            border-bottom-color: #47bec7;
+            border-bottom-color: #ea580c;
         }
 
         .section {
@@ -150,7 +188,7 @@
             <div class="content">
                 <h1>Alem Šabić</h1>
 
-                <p class="intro">Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua.</p>
+                <p class="intro">Lorem ipsum dolor sit amet, <a href="https://www.linkedin.com/in/alem%C5%A1abi%C4%87/" target="_blank">LinkedIn</a> sadipscing elitr, sed diam nonumy eirmod <a href="https://www.x.com/sarajevo" target="_blank">x.com</a> invidunt ut labore et dolore magna aliquyam erat, sed diam <a href="https://gpunkt.org" target="_blank">gpunkt.org</a>.</p>
 
                 <!-- Kontakt section - removed for now, may be added back later
                 <div class="section">
@@ -165,5 +203,23 @@
         </div>
         <div class="image-side"></div>
     </div>
+    <script>
+        const cursor = document.body;
+        let cursorX = 0;
+        let cursorY = 0;
+
+        document.addEventListener('mousemove', (e) => {
+            cursorX = e.clientX;
+            cursorY = e.clientY;
+
+            cursor.style.setProperty('--cursor-x', cursorX + 'px');
+            cursor.style.setProperty('--cursor-y', cursorY + 'px');
+            cursor.classList.add('cursor-active');
+        });
+
+        document.addEventListener('mouseleave', () => {
+            cursor.classList.remove('cursor-active');
+        });
+    </script>
 </body>
 </html>
