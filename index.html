@@ -20,27 +20,6 @@
             position: relative;
             -webkit-font-smoothing: antialiased;
             -moz-osx-font-smoothing: grayscale;
-            cursor: none;
-        }
-
-        body::after {
-            content: '';
-            width: 20px;
-            height: 20px;
-            border: 2px solid rgba(234, 88, 12, 0.5);
-            border-radius: 50%;
-            position: fixed;
-            pointer-events: none;
-            z-index: 10000;
-            transition: transform 0.15s ease-out, opacity 0.15s ease-out;
-            opacity: 0;
-            left: var(--cursor-x, -100px);
-            top: var(--cursor-y, -100px);
-            transform: translate(-50%, -50%);
-        }
-
-        body.cursor-active::after {
-            opacity: 1;
         }
 
         body::before {
@@ -59,11 +38,9 @@
         @keyframes fadeIn {
             from {
                 opacity: 0;
-                transform: translateY(20px);
             }
             to {
                 opacity: 1;
-                transform: translateY(0);
             }
         }
 
@@ -74,7 +51,7 @@
 
         .image-side {
             flex: 1;
-            background: url('alemsabic.png') center center / cover no-repeat;
+            background: url('alem-sabic-dark.png') center center / cover no-repeat;
             position: relative;
             opacity: 0;
             animation: fadeIn 1.2s ease-out 0.8s forwards;
@@ -83,11 +60,16 @@
         .image-side::before {
             content: '';
             position: absolute;
-            left: 0;
+            right: 0;
             top: 0;
             bottom: 0;
-            width: 100px;
-            background: linear-gradient(to right, #141516, transparent);
+            width: 300px;
+            background: linear-gradient(to left,
+                #141516 0%,
+                rgba(20, 21, 22, 0.95) 20%,
+                rgba(20, 21, 22, 0.7) 50%,
+                rgba(20, 21, 22, 0.3) 75%,
+                transparent 100%);
         }
 
         .content-side {
@@ -110,7 +92,7 @@
             font-weight: 900;
             line-height: 1.1;
             margin-bottom: 2rem;
-            color: #ea580c;
+            color: #a8a89e;
         }
 
         .intro {
@@ -120,14 +102,14 @@
         }
 
         .intro a {
-            color: #ea580c;
+            color: #a8a89e;
             text-decoration: none;
-            border-bottom: 1px solid rgba(255, 255, 255, 0.3);
+            border-bottom: 1px solid rgba(168, 168, 158, 0.3);
             transition: border-color 0.25s ease;
         }
 
         .intro a:hover {
-            border-bottom-color: #ea580c;
+            border-bottom-color: #a8a89e;
         }
 
         .section {
@@ -148,19 +130,19 @@
         }
 
         .links a {
-            color: #F44336;
+            color: #8c8c87;
             text-decoration: none;
             font-size: clamp(1.125rem, 1.5vw + 0.5rem, 1.375rem);
             transition: color 0.25s ease;
         }
 
         .links a:hover {
-            color: #888888;
+            color: #a8a89e;
         }
 
         @media (max-width: 968px) {
             .container {
-                flex-direction: column-reverse;
+                flex-direction: column;
             }
 
             .image-side {
@@ -169,10 +151,17 @@
 
             .image-side::before {
                 width: 100%;
-                height: 100px;
+                height: 300px;
+                right: auto;
+                left: 0;
                 top: auto;
                 bottom: 0;
-                background: linear-gradient(to top, #141516, transparent);
+                background: linear-gradient(to top,
+                    #141516 0%,
+                    rgba(20, 21, 22, 0.95) 20%,
+                    rgba(20, 21, 22, 0.7) 50%,
+                    rgba(20, 21, 22, 0.3) 75%,
+                    transparent 100%);
             }
 
             .content-side {
@@ -184,6 +173,7 @@
 </head>
 <body>
     <div class="container">
+        <div class="image-side"></div>
         <div class="content-side">
             <div class="content">
                 <h1>Alem Šabić</h1>
@@ -201,25 +191,6 @@
                 -->
             </div>
         </div>
-        <div class="image-side"></div>
     </div>
-    <script>
-        const cursor = document.body;
-        let cursorX = 0;
-        let cursorY = 0;
-
-        document.addEventListener('mousemove', (e) => {
-            cursorX = e.clientX;
-            cursorY = e.clientY;
-
-            cursor.style.setProperty('--cursor-x', cursorX + 'px');
-            cursor.style.setProperty('--cursor-y', cursorY + 'px');
-            cursor.classList.add('cursor-active');
-        });
-
-        document.addEventListener('mouseleave', () => {
-            cursor.classList.remove('cursor-active');
-        });
-    </script>
 </body>
 </html>
