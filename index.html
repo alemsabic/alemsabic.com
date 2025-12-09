@@ -92,7 +92,7 @@
             font-weight: 900;
             line-height: 1.1;
             margin-bottom: 2rem;
-            color: #a8a89e;
+            color: #d4d4d4;
         }
 
         .intro {
@@ -119,7 +119,7 @@
         .section-label {
             font-size: clamp(2rem, 3vw + 1rem, 3rem);
             font-weight: 900;
-            color: #f6f6f6;
+            color: #d4d4d4;
             margin-bottom: 2rem;
         }
 
@@ -127,17 +127,20 @@
             display: flex;
             flex-direction: column;
             gap: 0.5rem;
+            font-size: clamp(2rem, 2vw + 1.5rem, 2.25rem);
+            line-height: 1.5;
+            color: #d4d4d4;
         }
 
         .links a {
-            color: #8c8c87;
+            color: #a8a89e;
             text-decoration: none;
-            font-size: clamp(1.125rem, 1.5vw + 0.5rem, 1.375rem);
-            transition: color 0.25s ease;
+            border-bottom: 1px solid rgba(168, 168, 158, 0.3);
+            transition: border-color 0.25s ease;
         }
 
         .links a:hover {
-            color: #a8a89e;
+            border-bottom-color: #a8a89e;
         }
 
         @media (max-width: 968px) {
@@ -178,17 +181,16 @@
             <div class="content">
                 <h1>Alem Šabić</h1>
 
-<p class="intro">Lorem ipsum dolor sit amet, consectetur <a href="https://gpunkt.org" target="_blank">gpunkt.org</a> adipiscing elit. Sed do eiusmod <a href="https://nekontam.com" target="_blank">nekontam.com</a> tempor incididunt ut <a href="https://x.com/sarajevo" target="_blank">x.com/sarajevo</a> labore et dolore magna aliqua.</p>
+<p class="intro">Bildungsarbeiter. Quellensammlung auf <a href="https://ale.ms" target="_blank">ale.ms</a>. Magazin auf <a href="https://gpunkt.org" target="_blank">gpunkt.org</a>.</p>
 
-                <!-- Kontakt section - removed for now, may be added back later
                 <div class="section">
                     <div class="section-label">Kontakt</div>
                     <div class="links">
-                        <a href="#">E-Mail</a>
-                        <a href="https://www.linkedin.com/in/alem%C5%A1abi%C4%87/" target="_blank">LinkedIn</a>
+                        <div><a href="mailto:alemsabic@pm.me">alemsabic@pm.me</a></div>
+                        <div><a href="tel:+4916290555555">+49 0162 9055555</a></div>
+                        <div><a href="https://x.com/sarajevo" target="_blank">x.com/sarajevo</a></div>
                     </div>
                 </div>
-                -->
             </div>
         </div>
     </div>
